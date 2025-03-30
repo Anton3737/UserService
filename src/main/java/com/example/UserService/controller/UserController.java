@@ -1,7 +1,6 @@
 package com.example.UserService.controller;
 
 import com.example.UserService.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
