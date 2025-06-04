@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users List</title>
+    <style>
+        html {
+            background-color: blanchedalmond;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 200px;
+        }
+
+        .users-count {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            border: 1px solid black;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .not-found {
+            display: none;
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .pagi_btn {
+            background-color: aqua;
+            border: 0px;
+            width: 60px;
+            color: black;
+            border-radius: 50px;
+        }
+
+        .pagi_btn:hover {
+            background-color: yellow;
+            border: 0px;
+            width: 60px;
+            color: black;
+            border-radius: 50px;
+        }
+
+        .search_btn {
+            background-color: greenyellow;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            border: none;
+
+        }
+
+        .search_btn:hover {
+            border: none;
+            background-color: goldenrod;
+            border: 0px;
+            color: black;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h2>USERS</h2>
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchTable()">
+            <button class="search_btn">🔍</button>
+        </div>
+    </div>
+    <div class="users-count">Number of Found Users: <span id="userCount">100</span></div>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Register Date</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody id="userTableBody">
+        <tr>
+            <td>1</td>
+            <td>Leonardo</td>
+            <td>DiCaprio</td>
+            <td>leo@example.com</td>
+            <td>2023-01-10</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Brad</td>
+            <td>Pitt</td>
+            <td>brad@example.com</td>
+            <td>2023-01-11</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Angelina</td>
+            <td>Jolie</td>
+            <td>angie@example.com</td>
+            <td>2023-01-12</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Tom</td>
+            <td>Cruise</td>
+            <td>tom@example.com</td>
+            <td>2023-01-13</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Johnny</td>
+            <td>Depp</td>
+            <td>johnny@example.com</td>
+            <td>2023-01-14</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Scarlett</td>
+            <td>Johansson</td>
+            <td>scarlett@example.com</td>
+            <td>2023-01-15</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Robert</td>
+            <td>Downey Jr.</td>
+            <td>rdj@example.com</td>
+            <td>2023-01-16</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Chris</td>
+            <td>Hemsworth</td>
+            <td>chris@example.com</td>
+            <td>2023-01-17</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Jennifer</td>
+            <td>Lawrence</td>
+            <td>jlaw@example.com</td>
+            <td>2023-01-18</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Ryan</td>
+            <td>Reynolds</td>
+            <td>ryan@example.com</td>
+            <td>2023-01-19</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Will</td>
+            <td>Smith</td>
+            <td>will@example.com</td>
+            <td>2023-01-20</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Chris</td>
+            <td>Evans</td>
+            <td>cevans@example.com</td>
+            <td>2023-01-21</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Emma</td>
+            <td>Stone</td>
+            <td>emma@example.com</td>
+            <td>2023-01-22</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Anne</td>
+            <td>Hathaway</td>
+            <td>anne@example.com</td>
+            <td>2023-01-23</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Matthew</td>
+            <td>McConaughey</td>
+            <td>matthew@example.com</td>
+            <td>2023-01-24</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>Joaquin</td>
+            <td>Phoenix</td>
+            <td>joaquin@example.com</td>
+            <td>2023-01-25</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>Keanu</td>
+            <td>Reeves</td>
+            <td>keanu@example.com</td>
+            <td>2023-01-26</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>Tom</td>
+            <td>Hanks</td>
+            <td>tomh@example.com</td>
+            <td>2023-01-27</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Hugh</td>
+            <td>Jackman</td>
+            <td>hugh@example.com</td>
+            <td>2023-01-28</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>Charlize</td>
+            <td>Theron</td>
+            <td>charlize@example.com</td>
+            <td>2023-01-29</td>
+            <td><a href="#">View</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="not-found" id="notFoundMessage">User not found</div>
+    <div class="pagination">
+        <button class="pagi_btn" disabled>First</button>
+        <button class="pagi_btn" disabled>Previous</button>
+        <span>Page 1</span>
+        <button class="pagi_btn">Next</button>
+        <button class="pagi_btn">Last</button>
+    </div>
+</div>
+<script>
+    function updateUserCount(count) {
+        document.getElementById("userCount").textContent = count;
+    }
+
+    function searchTable() {
+        const input = document.getElementById("searchInput").value.toLowerCase().trim();
+        const rows = document.querySelectorAll("#userTableBody tr");
+        let count = 0;
+
+        if (input === "") {
+            rows.forEach(row => row.style.display = "");
+            updateUserCount(rows.length);
+            document.getElementById("notFoundMessage").style.display = "none";
+            return;
+        }
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(input)) {
+                row.style.display = "";
+                count++;
+            } else {
+                row.style.display = "none";
+            }
+        });
+
+        updateUserCount(count);
+        document.getElementById("notFoundMessage").style.display = count === 0 ? "block" : "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => updateUserCount(document.querySelectorAll("#userTableBody tr").length));
+</script>
+</body>
+</html>
