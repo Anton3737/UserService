@@ -18,12 +18,12 @@ public class AuthController {
         this.jwtUtil = jwtUtil;
     }
 
-    @PostMapping("/login")
-    public Map<String, String> login(@RequestBody Map<String, String> user) {
-
-        String username = user.get("username");
-        String role = user.get("role");
-        String token = jwtUtil.generateToken(username, role);
-        return Map.of("token", token);
-    }
+//    @PostMapping("/login")
+//    public Map<String, String> login(@RequestBody Map<String, String> user) {
+//
+//        String username = user.get("username");
+//        String role = user.get("role");
+//        String token = jwtUtil.generateToken(username, role);
+//        return Map.of("token", token);
+//    }
 }
